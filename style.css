@@ -205,13 +205,16 @@ h2 {
 
 /* Section Rekomendasi */
 .card {
-    flex: 1 1 300px; /* minimal lebar 300px, bisa melebar */
-    max-width: 350px;
-    margin-bottom: 20px;
-    height: auto; /* biar tinggi menyesuaikan isi */
+    height: auto;  /* biar tinggi menyesuaikan isi */
+    border: none;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    transition: all ease-in-out .3s;
+    margin-bottom: 30px;
+    position: relative; /* supaya anak position absolute bisa relatif ke sini, tapi kita akan ubah .card-fasilitas */
+    overflow: hidden; /* untuk menghindari isi keluar card */
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
 }
 
 .section-title {
@@ -248,27 +251,29 @@ h2 {
 
 @media (max-width: 768px) {
     .section-rekomendasi .card {
-        flex: 1 1 100%;
+       flex: 1 1 100%;
         max-width: 100%;
+        min-height: auto;
     }
 }
 
 .card-fasilitas {
-    position: absolute;
-    right: 0;
-    left: 0;
-    bottom: 10px;
-    background-color: #fff;
+    padding: 10px 15px;
+    background-color: #f5f5f5; /* beri warna background ringan */
+    border-top: 1px solid #ddd;
+    margin-top: auto; /* dorong ke bawah card */
 }
 
 .card-fasilitas span {
-    font-weight: 500;
-    margin-top: 18px;
+   font-weight: 500;
     color: #000;
+    display: block;
+    margin-bottom: 8px;
 }
 
 .card-fasilitas p {
     font-size: 12px;
+    margin: 0;
 }
 
 /* Maps Section */
