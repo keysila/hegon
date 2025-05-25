@@ -149,24 +149,29 @@ h2 {
 
 .card-layanan {
     width: 100%;
-    height: 350px;
+    height: auto; /* ubah supaya tinggi menyesuaikan isi */
+    min-height: 350px; /* tetap jaga minimal tinggi */
     border-radius: 5px;
     background-color: #fff;
-    padding: 40px;
+    padding: 20px; /* padding lebih kecil agar tidak terlalu padat di HP */
     box-shadow: 0 0 7px 3px rgba(0, 0, 0, 0.05);
-    transition: all 0.2s ease-in;
+    transition: all .2s ease-in;
+    overflow-wrap: break-word; /* memecah kata yang terlalu panjang */
+    word-wrap: break-word;
+    word-break: break-word;
 }
 
 .card-layanan h3 {
     color: #000;
-    font-size: 24px;
-    transition: all 0.2s ease-in;
+    font-size: 22px;
+    transition: all .2s ease-in;
 }
 
 .card-layanan p {
     color: #000;
     font-size: 14px;
-    transition: all 0.3s ease-in;
+    transition: all .3s ease-in;
+    line-height: 1.5;
 }
 
 /* Hover */
@@ -182,10 +187,31 @@ h2 {
     transition: all 0.3s ease-in;
 }
 
+@media (max-width: 576px) {
+    .card-layanan {
+        padding: 15px;
+        min-height: auto;
+        height: auto;
+    }
+
+    .card-layanan h3 {
+        font-size: 18px;
+    }
+
+    .card-layanan p {
+        font-size: 13px;
+    }
+}
+
 /* Section Rekomendasi */
 .card {
-    height: 450px;
-    border: none;
+    flex: 1 1 300px; /* minimal lebar 300px, bisa melebar */
+    max-width: 350px;
+    margin-bottom: 20px;
+    height: auto; /* biar tinggi menyesuaikan isi */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    transition: all ease-in-out .3s;
 }
 
 .section-title {
@@ -195,15 +221,18 @@ h2 {
 
 .card-body h4 {
     color: #000000;
-    font-weight: 500;
-    font-size: 24px;
+    font-weight: 600;
+    font-size: 22px;
     line-height: 0.8rem;
+    margin-bottom: 8px;
+
 }
 
 .card-body p {
     color: #454545;
     font-weight: 400;
     font-size: 14px;
+    line-height: 1.4;
 }
 
 .card:hover {
@@ -215,7 +244,13 @@ h2 {
 .card:hover .card-body h4,
 .card:hover .card-body p {
     color: #fff;
-    transition: all ease-in-out 0.3s;
+}
+
+@media (max-width: 768px) {
+    .section-rekomendasi .card {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
 }
 
 .card-fasilitas {
